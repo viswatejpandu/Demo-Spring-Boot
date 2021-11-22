@@ -1,0 +1,32 @@
+<div class="container wrapperC">
+	<div class="row">
+
+				<div class="col-sm-3" ng-repeat="product in products track by $index">
+					<article class="col-item">
+						<div class="photo">
+							<a href="#"> <img ng-cloak src="{{product.thumbnail}}" class="img-responsive" alt="{{product.name}}" /> </a>
+						</div>
+						<div class="info">
+							<div class="row">
+								<div class="price-details col-md-6">
+									<p class="details">
+										{{product.description}}
+									</p>
+									<h1>{{product.name}}</h1>
+									<span class="price-new">{{this.quantity * product.price | currency:"$":2}}</span>
+								</div>
+							</div>
+							<div class="separator clear-left">
+								<p class="btn-details">
+									<span class="pull-left">Quantity :</span> <input type="number" min="1" pattern="^[1-9]\d*$"  ng-init="this.quantity = 1" ng-model="this.quantity">
+								</p>
+								<p class="btn-add">
+									<i class="fa fa-shopping-cart"></i><a href="javascript:void(0)" ng-click="addToCart($index,this.quantity)">Add to cart</a>
+								</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</article>
+				</div>
+	</div>
+</div>
